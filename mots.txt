@@ -1,0 +1,5 @@
+python
+ordinateur
+clavier
+souris
+terminal

@@ -27,6 +27,11 @@ fichier_mots = sys.argv[1]
 
 highscore = open("highscore.txt", "r")
 score = highscore.read()
+
+if score == "":
+    print("Aucun record pour le moment.")
+else:
+    print("Record actuel :", score) 
 date_jeu = date.today()
 
 
@@ -97,6 +102,16 @@ if penalites > 12:
 
 print("Nombre de tentatives :", tentatives)
 print("Date :", date_jeu)
+
+ancien_score = int(score.split("|")[0])
+
+if tentatives < ancien_score:
+    highscore = open("highscore.txt", "w")
+    highscore.write(str(tentatives) + "|" + str(date_jeu))
+    highscore.close()
+    print("Best ever! Nouveau record !")
+else:
+    print("Record non battu.")
 
 
 ######################  FIN DU JEU ########################
